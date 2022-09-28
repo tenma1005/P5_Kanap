@@ -44,5 +44,5 @@ async function cardsKanap() {
 }
 
 /* Et pour finir, on appelle la fonction cardsKanap pour tout faire afficher en html 
-     cela appellera automatiquement la fonction html()*/
+     cela appellera automatiquement la fonction dataBase()*/
 cardsKanap();
