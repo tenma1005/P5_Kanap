@@ -33,7 +33,7 @@ async function cardsKanap() {
     let i = 0;
     i < card.length;
     i++;
-    document.querySelector("#items").innerHTML += `<a href="#">
+    document.querySelector("#items").innerHTML += `<a href="product.html?id=${card._id}">
                     <article>
                       <img src="${card.imageUrl}" alt="${card.altTxt}">
                       <h3 class="cardName">${card.name}</h3>
