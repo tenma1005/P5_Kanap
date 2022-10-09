@@ -35,12 +35,6 @@ function displayBasket() {
     document.querySelector("h1").innerHTML =
       "Vous n'avez pas d'article dans votre panier";
   }
-  /*
-
-
-
-
-  */
 
   //--------------------------------------------------------------
   // Boucle d'affichage du panier à partir du local storage
@@ -94,30 +88,7 @@ function displayBasket() {
 }
 
 displayBasket();
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 //--------------------------------------------------------------
 //  B/ Fonction de supression d'un article du panier (dynamiquement) et donc de l'affichage
 //--------------------------------------------------------------
@@ -152,42 +123,7 @@ function deleteArticle() {
 }
 // Pour finir cette sous-partie, on appel de la fonction deleteArticle
 deleteArticle();
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 //--------------------------------------------------------------
 //  C/ Fonction qui va modifier un article du panier dynamiquement
 //--------------------------------------------------------------
@@ -211,67 +147,7 @@ function modifyQuantity() {
 }
 
 modifyQuantity();
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 /*--------------------------------------------------------------------------
 // PARTIE 2 : LA VALIDATION DU FORMULAIRE
 ----------------------------------------------------------------------------*/
@@ -290,24 +166,6 @@ const regexCity = /^[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæ
 
 const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
 
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 //--------------------------------------------------------------
 //  B/ Fonction qui va envoyer le formulaire si toutes les conditions sont ok
 //--------------------------------------------------------------
@@ -372,30 +230,7 @@ function form(e) {
   }
 
   conditionForm();
-  /*
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  */
+
   // La fonction requestBody() va récupèrer les valeurs écrites dans les inputs.
 
   function requestBody() {
@@ -421,31 +256,6 @@ function form(e) {
     };
     return theOrder;
   }
-  /*
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  */
 
   // Fonction postMethod qui va permet de vérifier toutes les conditions sont ok pour l'envoie du formulaire
   function postMethod() {
@@ -492,22 +302,7 @@ function form(e) {
 
   postMethod();
 }
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 //--------------------------------------------------------------
 //  C/ Pour finir on appel la fonction avec un addEventListener
 //--------------------------------------------------------------

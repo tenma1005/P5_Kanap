@@ -12,28 +12,7 @@ function params() {
   console.log("id de l'article affiché : " + idProduct);
   return idProduct;
 }
-/*
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  */
+
 /*--------------------------------------------------------------------------
   //  PARTIE 2 : fonction de récupération des produits de l'api et traitement des données (voir script.js)
   ----------------------------------------------------------------------------*/
@@ -53,24 +32,6 @@ async function dataBase(articleId) {
       console.log(error);
     });
 }
-/*
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  */
 
 /*--------------------------------------------------------------------------
   //  PARTIE 3 : fonction d'affichage du produit de l'api
@@ -98,23 +59,7 @@ function articleDetails(article) {
   }
   console.log("affichage réussi...");
 }
-/*
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  */
+
 /*--------------------------------------------------------------------------
   // PARTIE 4 : Fonction asynchrone qui permet d'ajouter un objet au panier dans le local storage.
   ----------------------------------------------------------------------------*/
@@ -152,29 +97,6 @@ async function addArticleInLocalStorage() {
         quantityArticle: quantitySelection.value,
       };
 
-      /*
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      */
       /*--------------------------------------------------------------------------
         // B/ conditions de validation du clic via le bouton ajouter au panier
         ----------------------------------------------------------------------------*/
