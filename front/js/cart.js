@@ -257,7 +257,7 @@ function form(e) {
     return theOrder;
   }
 
-  // Fonction postMethod qui va permet de vérifier toutes les conditions sont ok pour l'envoie du formulaire
+  // Fonction postMethod qui va permet de vérifier que toutes les conditions sont ok pour l'envoie du formulaire
   function postMethod() {
     // Si isValided === true on envoit le formulaire.
     if (isValided === true) {

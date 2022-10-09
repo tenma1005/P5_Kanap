@@ -3,7 +3,7 @@
 ===============================================================================================*/
 
 /*--------------------------------------------------------------------------
-// PARTIE 1 : fonction de récupération de l'id du produit via l' URL
+// PARTIE 1 : fonction de récupération de l'id du produit via l'URL
 ----------------------------------------------------------------------------*/
 function params() {
   let url = new URL(document.location);
