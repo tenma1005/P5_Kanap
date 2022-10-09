@@ -49,9 +49,8 @@ async function dataBase(articleId) {
     .catch(function (error) {
       document.querySelector(".item").innerHTML =
         "<h1>Erreur de chargement</h1>";
-      console.log(
-        "Erreur de chargement des produits... Voir la ressource API"
-      ) + error;
+      console.log("Erreur de chargement des produits... Voir la ressource API");
+      console.log(error);
     });
 }
 /*

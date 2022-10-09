@@ -23,9 +23,9 @@ async function dataBase() {
     .catch(function (error) {
       document.querySelector(".titles").innerHTML = "<h1>Error</h1>";
       console.log(
-        "Error, ça ne marche pas... À voir au niveau du script ou de l'API" +
-          error
+        "Error, ça ne marche pas... À voir au niveau du script ou de l'API"
       );
+      console.log(error);
       /* si ça ne fonctionne pas, on affiche un message dans la console et on change le titre h1... */
     });
 }

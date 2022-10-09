@@ -484,7 +484,8 @@ function form(e) {
         .catch(function (error) {
           alert(
             "Erreur d'envoi du formulaire. Merci de nous contacter au 01 23 45 67 89 pour qu'on vous confirme votre commande."
-          ) + error;
+          );
+          console.log(error);
         });
     }
   }
