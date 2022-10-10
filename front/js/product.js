@@ -5,7 +5,7 @@
 /*--------------------------------------------------------------------------
 // PARTIE 1 : fonction de récupération de l'id du produit via l'URL
 ----------------------------------------------------------------------------*/
-function params() {
+function idRecup() {
   let url = new URL(document.location);
   let idProduct = url.searchParams.get("id");
   // Affiche l'id de l'article dans la console
@@ -66,7 +66,7 @@ function articleDetails(article) {
 
 async function addArticleInLocalStorage() {
   // On stock l'id de l'article dans une variable
-  const articleId = params();
+  const articleId = idRecup();
 
   // On récupère après la réponse de la fonction dataBase() que l'on stocke dans une const que l'on nomme article
   const article = await dataBase(articleId);
@@ -93,7 +93,7 @@ async function addArticleInLocalStorage() {
         nameArticle: article.name,
         colorArticle: colors.value,
         descriptionArticle: article.description,
-        priceArticle: article.price,
+        priceArticle: article.price /*ATTENTION */,
         quantityArticle: quantitySelection.value,
       };
 
@@ -136,10 +136,10 @@ async function addArticleInLocalStorage() {
               parseInt(articleTaked.quantityArticle);
             articleTaked.quantityArticle = addArticleQuantity;
           } else {
+            // On envoi les données dans articleCustomer, puis on les ajoute au localStorage.
             articleCustomer.quantityArticle = articleCustomer.quantityArticle;
             basketCustomer.push(articleCustomer);
           }
-          // On envoi les données dans articleCustomer, puis on les ajoute au localStorage.
           // Et enfin, on renvoit un nouveau "product" dans le localStorage
 
           return (localStorage.product = JSON.stringify(basketCustomer));
@@ -155,7 +155,7 @@ async function addArticleInLocalStorage() {
           sendInLocalStorage();
           window.location.href = "cart.html";
         } else {
-          console.log("error... À voir où ça a 'encore' m**der...");
+          console.log("error...");
         }
       }
     });

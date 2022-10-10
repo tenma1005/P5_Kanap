@@ -49,9 +49,7 @@ function displayBasket() {
       basketCustomer[i].quantityArticle * basketCustomer[i].priceArticle;
 
     // On crée les affichages des produits du panier via un innerHTML dans le code html :
-    viewBasket = document.getElementById("cart__items").innerHTML =
-      viewBasket +
-      `
+    viewBasket = document.getElementById("cart__items").innerHTML += `
   <article class="cart__item" data-id=${basketCustomer[i].idArticle} data-color="${basketCustomer[i].colorArticle}">
               <div class="cart__item__img">
                 <img src="${basketCustomer[i].imageArticle}" alt="${basketCustomer[i].textAlt}">
@@ -60,7 +58,7 @@ function displayBasket() {
                 <div class="cart__item__content__description">
                   <h2>${basketCustomer[i].nameArticle}</h2>
                   <p>${basketCustomer[i].colorArticle}</p>
-                  <p>${basketCustomer[i].priceArticle} € / pièce</p>
+                  <p>${basketCustomer[i].priceArticle} €</p>
                 </div>
                 <div class="cart__item__content__settings">
                   <div class="cart__item__content__settings__quantity">

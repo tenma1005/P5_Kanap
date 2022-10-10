@@ -15,9 +15,8 @@ function orderNumber() {
   // Affiche l'id de l'article dans la console
   console.log("numéro de la commande : " + orderId);
 
-  document.querySelector(
-    "#orderId"
-  ).innerHTML = `<br><br> ${orderId} <br><br> Merci pour votre achat !`;
+  document.querySelector("#orderId").innerHTML = `<br><br> ${orderId} <br><br>`;
+  console.log("Merci pour votre achat !");
 }
 
 orderNumber();
@@ -27,7 +26,8 @@ orderNumber();
   ----------------------------------------------------------------------------*/
 
 function purge() {
-  window.localStorage.clear();
+  //window.localStorage.clear();
+  localStorage.removeItem("product");
 }
 
 purge();

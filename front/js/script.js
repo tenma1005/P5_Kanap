@@ -16,6 +16,7 @@ async function dataBase() {
       return apiResponse.json();
     })
     .then(function (articlesList) {
+      console.log("Liste des articles :");
       console.table(articlesList);
 
       return articlesList;
@@ -45,9 +46,6 @@ async function dataBase() {
 async function cardsKanap() {
   const articles = await dataBase();
   for (let article of articles) {
-    let i = 0;
-    i < article.length;
-    i++;
     document.querySelector(
       "#items"
     ).innerHTML += `<a href="product.html?id=${article._id}">
