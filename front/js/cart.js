@@ -3,7 +3,7 @@ SCRIPT DE LA PAGE PANIER -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS DANS 
                             POUR POUVOIR ENVOYER LA COMMANDE VIA UN FORMULAIRE
 ===============================================================================================*/
 async function theCart() {
-  let products;
+  let fetchPrice;
 
   // Pour commencer, pour qu'on ai le prix dans le panier, on utilise la methode fetch pour récupérer l'API
   // Cela va servir à afficher les prix en fonction de l'id (ou des id) de(s) l'article(s) du panier.
@@ -12,7 +12,7 @@ async function theCart() {
       return res.json();
     })
     .then(function (articleList) {
-      return (products = articleList);
+      return (fetchPrice = articleList);
     })
     .catch(function (error) {
       return console.log("Voir au niveau de l'API ce qu'il ne va pas" + error);
@@ -60,8 +60,7 @@ async function theCart() {
       totalArticleNumber += parseInt(basketCustomer[i].quantityArticle, 10);
 
       // Calcul du prix total dans le panier :
-      totalCost +=
-        basketCustomer[i].quantityArticle * basketCustomer[i].priceArticle;
+      totalCost += basketCustomer[i].quantityArticle * fetchPrice[i].price;
 
       // On crée les affichages des produits du panier via un innerHTML dans le code html :
       viewBasket = document.getElementById("cart__items").innerHTML += `
@@ -73,7 +72,7 @@ async function theCart() {
                 <div class="cart__item__content__description">
                   <h2>${basketCustomer[i].nameArticle}</h2>
                   <p>${basketCustomer[i].colorArticle}</p>
-                  <p>${basketCustomer[i].priceArticle} €</p>
+                  <p>${fetchPrice[i].price} €</p>
                 </div>
                 <div class="cart__item__content__settings">
                   <div class="cart__item__content__settings__quantity">
