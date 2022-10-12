@@ -151,6 +151,14 @@ async function theCart() {
         // On met la nouvelle valeur de l'input quantitySelected[i].value dans le le localStorage
         basketCustomer[i].quantityArticle = quantitySelected[i].value;
 
+        //Si la quantité modifié manuellement au clavier est supérieur à 100, on le ramène automatiquement à 100 qui est la valeur maximum autorisé.
+        if (basketCustomer[i].quantityArticle > 100) {
+          basketCustomer[i].quantityArticle = 100;
+          alert(
+            "Vous ne pouvez pas dépasser les 100 articles dans le panier... La quantité total a été ramené à 100"
+          );
+        }
+
         // Applique immédiatement les changements dans le local storage :
         localStorage.product = JSON.stringify(basketCustomer);
 
