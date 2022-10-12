@@ -136,7 +136,7 @@ async function addArticleInLocalStorage() {
               parseInt(articleTaked.quantityArticle);
             articleTaked.quantityArticle = addArticleQuantity;
 
-            // Si le client se retrouve avec une quantité total supérieur à 100 (ce qui est possible en deux fois), on le ramène à la quantité maximum, c'est-à-dire 100
+            // Si le client se retrouve avec une quantité totale supérieure à 100 (ce qui est possible en deux fois), on ramène la valeur à la quantité maximale autorisée, c'est-à-dire 100
             if (articleTaked.quantityArticle > 100) {
               articleTaked.quantityArticle = 100;
               alert(

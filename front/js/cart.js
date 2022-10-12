@@ -5,8 +5,7 @@ SCRIPT DE LA PAGE PANIER -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS DANS 
 async function theCart() {
   let fetchPrice;
 
-  // Pour commencer, pour qu'on ai le prix dans le panier, on utilise la methode fetch pour récupérer l'API
-  // Cela va servir à afficher les prix en fonction de l'id (ou des id) de(s) l'article(s) du panier.
+  // Pour commencer, pour que l'on puisse afficher le(s) prix dans le panier, on utilise la méthode fetch pour récupérer l'API
   await fetch("http://localhost:3000/api/products")
     .then(function (res) {
       return res.json();
@@ -151,11 +150,22 @@ async function theCart() {
         // On met la nouvelle valeur de l'input quantitySelected[i].value dans le le localStorage
         basketCustomer[i].quantityArticle = quantitySelected[i].value;
 
-        //Si la quantité modifié manuellement au clavier est supérieur à 100, on le ramène automatiquement à 100 qui est la valeur maximum autorisé.
+        // Si la quantitée modifié manuellement au clavier est supérieure à 100, on ramène la valeur automatiquement à 100 qui est la valeur maximale autorisée.
+
         if (basketCustomer[i].quantityArticle > 100) {
           basketCustomer[i].quantityArticle = 100;
+          // Et un message au client pour aller avec ceci
           alert(
             "Vous ne pouvez pas dépasser les 100 articles dans le panier... La quantité total a été ramené à 100"
+          );
+        }
+
+        // Si la quantité modifiée manuellement au clavier est inférieure à 1 (qui peut-être 0 ou un négatif), on ramène la valeur automatiquement à 1 qui est la valeur minimale autorisé. S'il n'en veut plus, il cliquera sur le bouton supprimer...
+        if (basketCustomer[i].quantityArticle < 1) {
+          basketCustomer[i].quantityArticle = 1;
+          // Et un message au client pour aller avec ceci
+          alert(
+            "Vous ne pouvez pas aller en dessous de 1 article dans le panier... La quantité total a été ramené à 1... Sinon supprimez-le"
           );
         }
 
