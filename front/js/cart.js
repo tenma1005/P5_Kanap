@@ -21,7 +21,7 @@ async function theCart() {
 // PARTIE 1 : AFFICHAGE DU PANIER CLIENT
 ----------------------------------------------------------------------------*/
 
-  // On crée une nouvelle variable basketCustomer récupère les données stocké du local storage en format JSON (tout comme le script product.js)
+  // On crée une nouvelle variable basketCustomer récupère les données stockées du local storage en format JSON (tout comme le script product.js)
   let basketCustomer = JSON.parse(localStorage.getItem("product"));
 
   // Pour éviter les erreurs dans la console lorsque basketCustomer est null...
@@ -36,7 +36,7 @@ async function theCart() {
   function displayBasket() {
     // Pour afficher après un tableau dans la console pour voir les détails des articles sélectionnés
     const tableBasket = basketCustomer;
-    // Déclaration des variables pour le prix total du panier, de la quantité total des articles sélectionné et du code html des articles sélectionné.
+    // Déclaration des variables pour le prix total du panier, de la quantité total des articles sélectionnés et du code html des articles sélectionné.
     let totalArticleNumber = 0;
     let totalCost = 0;
     let viewBasket = [];
@@ -55,13 +55,13 @@ async function theCart() {
     //--------------------------------------------------------------
 
     for (i = 0; i < basketCustomer.length; i++) {
-      // Calcul de la quantité d'article total dans le panier :
+      // Calcul de la quantité d'articles total dans le panier :
       totalArticleNumber += parseInt(basketCustomer[i].quantityArticle, 10);
 
       // Calcul du prix total dans le panier :
       totalCost += basketCustomer[i].quantityArticle * fetchPrice[i].price;
 
-      // On crée les affichages des produits du panier via un innerHTML dans le code html :
+      // On crée l'affichage des produits du panier via un innerHTML dans le code html :
       viewBasket = document.getElementById("cart__items").innerHTML += `
   <article class="cart__item" data-id=${basketCustomer[i].idArticle} data-color="${basketCustomer[i].colorArticle}">
               <div class="cart__item__img">
@@ -90,7 +90,7 @@ async function theCart() {
     document.getElementById("totalPrice").innerHTML = totalCost;
     document.getElementById("totalQuantity").innerHTML = totalArticleNumber;
 
-    // Affichage dans la console bien indiquer :
+    // Affichage dans la console pour bien indiquer :
     console.log("Prix total : " + totalCost);
     console.log("Nombre total d'article : " + totalArticleNumber);
     console.log(viewBasket);
@@ -114,7 +114,7 @@ async function theCart() {
         [i].addEventListener("click", function (e) {
           e.preventDefault();
 
-          // Va filtrer les objets n'ayant pas la même ID ou la même couleur que l'élément cliqué pour évité de supprimer des articles qu'on ne veux pas supprimer
+          // Va filtrer les objets n'ayant pas la même ID ou la même couleur que l'élément cliqué pour éviter de supprimer des articles qu'on ne veut pas supprimer
           // Cela va permettre de supprimer un article qui correspond à son id et à sa couleur
           basketCustomer = basketCustomer.filter(function (el) {
             return (
@@ -129,12 +129,12 @@ async function theCart() {
           // On met un message dans la console pour confirmer la suppression :
           console.log("Article supprimer");
 
-          // on raffraichit l'affichage la page avec reload() qui va afficher le panier modifier
+          // On rafraichit l'affichage la page avec reload() qui va afficher le panier modifier
           location.reload();
         });
     }
   }
-  // Pour finir cette sous-partie, on appel de la fonction deleteArticle
+  // Pour finir cette sous-partie, on appelle de la fonction deleteArticle
   deleteArticle();
 
   //--------------------------------------------------------------
@@ -142,15 +142,15 @@ async function theCart() {
   //--------------------------------------------------------------
 
   function modifyQuantity() {
-    // On déclare une variable "quantitySelected" pour stoké l'input .itemQuantity avec un querySelectorAll ET ensuite faire une boucle
+    // On déclare une variable "quantitySelected" pour stocker l'input .itemQuantity avec un querySelectorAll ET ensuite faire une boucle
     const quantitySelected = document.querySelectorAll(".itemQuantity");
-    // Cette boucle va servir à repérer les changements dans l'input que le client aura modifié avec un addEventListener. Une fonction se lance dès que le client voudra mofifier la quantité
+    // Cette boucle va servir à repérer les changements dans l'input que le client aura modifié avec un addEventListener. Une fonction se lance dès que le client voudra modifier la quantité
     for (let i = 0; i < quantitySelected.length; i++) {
       quantitySelected[i].addEventListener("input", function () {
-        // On met la nouvelle valeur de l'input quantitySelected[i].value dans le le localStorage
+        // On met la nouvelle valeur de l'input quantitySelected[i].value dans le le local storage
         basketCustomer[i].quantityArticle = quantitySelected[i].value;
 
-        // Si la quantitée modifié manuellement au clavier est supérieure à 100, on ramène la valeur automatiquement à 100 qui est la valeur maximale autorisée.
+        // Si la quantitée modifiée manuellement au clavier est supérieure à 100, on ramène la valeur automatiquement à 100 qui est la valeur maximale autorisée.
 
         if (basketCustomer[i].quantityArticle > 100) {
           basketCustomer[i].quantityArticle = 100;
@@ -160,7 +160,7 @@ async function theCart() {
           );
         }
 
-        // Si la quantité modifiée manuellement au clavier est inférieure à 1 (qui peut-être 0 ou un négatif), on ramène la valeur automatiquement à 1 qui est la valeur minimale autorisé. S'il n'en veut plus, il cliquera sur le bouton supprimer...
+        // Si la quantité modifiée manuellement au clavier est inférieure à 1 (qui peut-être 0 ou un négatif), on ramène la valeur automatiquement à 1 qui est la valeur minimale autorisée. S'il n'en veut plus, il cliquera sur le bouton supprimer...
         if (basketCustomer[i].quantityArticle < 1) {
           basketCustomer[i].quantityArticle = 1;
           // Et un message au client pour aller avec ceci
@@ -172,7 +172,7 @@ async function theCart() {
         // Applique immédiatement les changements dans le local storage :
         localStorage.product = JSON.stringify(basketCustomer);
 
-        // On raffraichit l'affichage la page avec reload() qui va afficher le panier modifier
+        // On rafraichit l'affichage la page avec reload() qui va afficher le panier modifié
         location.reload();
       });
     }
@@ -185,7 +185,7 @@ async function theCart() {
 ----------------------------------------------------------------------------*/
 
   //--------------------------------------------------------------
-  //  A/ On stoke les Regex dans des variables :
+  //  A/ On stocke les Regex dans des variables :
   //--------------------------------------------------------------
 
   // /^ début du regex qui valide les caratères a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ aussi les espaces blancs et tiret \s- comprit entre 1 et 31 caratères {1,31} et on termine la regex $/i en indiquant que les éléments selectionnés ne sont pas sensible à la casse
@@ -206,9 +206,9 @@ async function theCart() {
     // e.preventDefault() indique que si l'event n'est pas bien géré, l'action par défaut ne devrait pas être exécutée comme elle l'est normalement.
     e.preventDefault();
 
-    // Déclaration de la variable isValided. On met comme valeur un boolean "true", ce qui va permettre de vérifier si les conditions sont toutes remplis
-    // Pour remplir ces conditions, le client doit bien rempli le formulaire sinon isValided deviens false et affiche un message d'erreur s'il y a au moins une condition non respecté...
-    // Pour cela, la fonction conditionForm() va permettre de verifier toutes les regex avec les conditions.
+    // Déclaration de la variable isValided. On met comme valeur un boolean "true", ce qui va permettre de vérifier si les conditions sont toutes remplies
+    // Pour remplir ces conditions, le client doit bien rempli le formulaire sinon isValided deviens false et affiche un message d'erreur s'il y a au moins une condition non respectée...
+    // Pour cela, la fonction conditionForm() va permettre de vérifier toutes les regex avec les conditions.
 
     let isValided = true;
 
@@ -263,18 +263,18 @@ async function theCart() {
 
     conditionForm();
 
-    // La fonction requestBody() va récupèrer les valeurs écrites dans les inputs.
+    // La fonction requestBody() va récupérer les valeurs écrites dans les inputs.
 
     function requestBody() {
-      // Va effectuer une boucle à l'interieur et on placera les id du/des article(s) dans la variable idProducts.
-      // On crée aussi un objet contact dans lequel on entre les données des inputs saisie par le client.
+      // Va effectuer une boucle à l'intérieur et on placera les id de(s) (l')article(s) dans la variable idProducts.
+      // On crée aussi un objet contact dans lequel on entre les données des inputs saisis par le client.
 
       let idProducts = [];
       for (let i = 0; i < basketCustomer.length; i++) {
         idProducts.push(basketCustomer[i].idArticle);
       }
 
-      // On prépare les données pour l'envoie en POST.
+      // On prépare les données pour l'envoi en POST.
       const theOrder = {
         contact: {
           firstName: document.getElementById("firstName").value,
@@ -283,29 +283,29 @@ async function theCart() {
           city: document.getElementById("city").value,
           email: document.getElementById("email").value,
         },
-        // Et enfin un products avec l'id des articles récupérer dans la boucle.
+        // Et enfin on place un products avec l'id des articles récupérés dans la boucle.
         products: idProducts,
       };
       return theOrder;
     }
 
-    // Fonction postMethod qui va permet de vérifier que toutes les conditions sont ok pour l'envoie du formulaire
+    // Fonction postMethod qui va permet de vérifier que toutes les conditions sont ok pour l'envoi du formulaire
     function postMethod() {
       // Si isValided === true on envoit le formulaire.
       if (isValided === true) {
-        // Mais si les conditions sont ok et que le panier est vide, on bloque l'envoie du formulaire avec un return. Hors de question de traiter une commande vide...
+        // Mais si les conditions sont ok et que le panier est vide, on bloque l'envoi du formulaire avec un return. Hors de question de traiter une commande vide...
         if (basketCustomer.length === 0) {
           alert("Panier vide. Veuillez choisir un article.");
           return;
         }
 
         fetch("http://localhost:3000/api/products/order", {
-          // On utilise la méthode POST pour envoyer les données saisie au serveur
+          // On utilise la méthode POST pour envoyer les données saisies au serveur
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          // On récupère le tableau contact qu'on a déclarer juste avant en activant la fonction requestBody().
+          // On récupère le tableau contact qu'on a déclaré juste avant en activant la fonction requestBody().
           body: JSON.stringify(requestBody()),
         })
           .then(function (apiResponse) {
@@ -322,7 +322,7 @@ async function theCart() {
             // Pour afficher le tableau de la commande dans la console de la page confirmation.html
             return console.table(data);
           })
-          // S'il y a une erreur et que le client ne peut pas validé la commande, on l'invite à contacter l'entreprise pour qu'elle puisse validé la commande manuellement
+          // S'il y a une erreur et que le client ne peut pas valider la commande, on l'invite à contacter l'entreprise pour qu'elle puisse valider la commande manuellement
           .catch(function (error) {
             alert(
               "Erreur d'envoi du formulaire. Merci de nous contacter au 01 23 45 67 89 pour qu'on vous confirme votre commande."
@@ -336,7 +336,7 @@ async function theCart() {
   }
 
   //--------------------------------------------------------------
-  //  C/ Pour finir on appel la fonction avec un addEventListener
+  //  C/ Pour finir on appelle la fonction avec un addEventListener
   //--------------------------------------------------------------
   //
   document.querySelector("#order").addEventListener("click", function (e) {
