@@ -6,7 +6,7 @@ SCRIPT DE LA PAGE DE CONFIRMATION DE LA COMMANDE -> PERMET DE CONFIRMER LA COMMA
 ===============================================================================================*/
 
 /*--------------------------------------------------------------------------
-// PARTIE 1 : Fonction pour afficher la confirmation de la commande et son numéro en récupèrant dans l'url l'orderId
+// PARTIE 1 : Fonction pour afficher la confirmation de la commande et son numéro en récupérant dans l'url l'orderId
 ----------------------------------------------------------------------------*/
 
 function orderNumber() {
