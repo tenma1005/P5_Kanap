@@ -1,5 +1,5 @@
 /*=============================================================================================
-SCRIPT DE LA PAGE D'ACCUEIL -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS EN BASE DE DONNÉE
+SCRIPT DE LA PAGE D'ACCUEIL -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS EN BASE DE DONNÉES
 ===============================================================================================*/
 
 /*--------------------------------------------------------------------------
@@ -9,7 +9,7 @@ SCRIPT DE LA PAGE D'ACCUEIL -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS EN
 /* Pour commencer, on fait une fonction async qu'on appelle dataBase() pour récupérer l'URL de la base de 
    donnée et pour faire une promise (.then + .catch) en utilisant la méthode fetch */
 
-/* Après ça, dans la fonction dataBase() On demande la réponse de l'API en format JSON en fesant un return */
+/* Après ça, dans la fonction dataBase() On demande la réponse de l'API en format JSON en faisant un return */
 async function dataBase() {
   return fetch("http://localhost:3000/api/products")
     .then(function (apiResponse) {
@@ -40,8 +40,8 @@ async function dataBase() {
      (const pour éviter les modifs maladroites). Attention ne surtout pas oublier de mettre "await" pour dire
      que la fonction dataBase() est une "promise". C'est pour ça que la fonction cardsKanap() est async (obligatoire si on veut
       mettre "await" dedans...)
-     Après avoir répupérer la fonction dataBase() puis stoké dans un constante, on lance une boucle pour afficher
-     les produits dans la page d'acceuil en rejoutant par la suite document.querySelector("#items").innerHTML  */
+     Après avoir répupéré la fonction dataBase() puis stoké dans une constante, on lance une boucle pour afficher
+     les produits dans la page d'accueil en rejoutant par la suite document.querySelector("#items").innerHTML  */
 
 async function cardsKanap() {
   const articles = await dataBase();
