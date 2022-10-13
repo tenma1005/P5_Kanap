@@ -61,11 +61,11 @@ function articleDetails(article) {
 }
 
 /*--------------------------------------------------------------------------
-  // PARTIE 4 : Fonction asynchrone qui permet d'ajouter un objet au panier dans le local storage.
+  // PARTIE 4 : Fonction asynchrone qui permet d'ajouter un objet au panier dans le local storage
   ----------------------------------------------------------------------------*/
 
 async function addArticleInLocalStorage() {
-  // On stock l'id de l'article dans une variable
+  // On stocke l'id de l'article dans une variable
   const articleId = idRecup();
 
   // On récupère après la réponse de la fonction dataBase() que l'on stocke dans une const que l'on nomme article
@@ -84,7 +84,7 @@ async function addArticleInLocalStorage() {
       event.preventDefault();
 
       /*--------------------------------------------------------------------------
-        // A/ Création d'objet articleCustomer pour stoker les données dans l'objet js
+        // A/ Création d'objet articleCustomer pour stocker les données dans l'objet js
         ----------------------------------------------------------------------------*/
       const articleCustomer = {
         textAlt: article.altTxt,
@@ -98,9 +98,9 @@ async function addArticleInLocalStorage() {
       };
 
       /*--------------------------------------------------------------------------
-        // B/ conditions de validation du clic via le bouton ajouter au panier
+        // B/ conditions de validation du clic via le bouton "Ajouter au panier"
         ----------------------------------------------------------------------------*/
-      // Tant qu'il n'y a pas d'action sur la couleur et/ou la quantité, c'est 2 valeurs sont undefined et au lieu de valider ça affichera une alert()
+      // Tant qu'il n'y a pas d'action sur la couleur et/ou la quantité, ces 2 valeurs sont undefined et au lieu de valider ça affichera une alert()
 
       if (
         articleCustomer.colorArticle === "" ||
@@ -116,12 +116,12 @@ async function addArticleInLocalStorage() {
         alert("La quantité choisie doit être entre 1 et 100");
       } else {
         // On crée la variable qui sera ce qu'on récupère du local storage appelé basketCustomer et qu'on convertit en JSON.
-        // Cette variable va stocker les key et value du local storage pour simplifier les choses.
+        // Cette variable va stocker les keys et values du local storage pour simplifier les choses.
         let basketCustomer = JSON.parse(localStorage.getItem("product"));
 
-        // On crée la Fonction sendInLocalStorage pour pouvoir envoyer les données contenu dans l'objet js articleCustomer dans le localStorage.
+        // On crée la Fonction sendInLocalStorage pour pouvoir envoyer les données contenues dans l'objet js articleCustomer dans le local storage.
         function sendInLocalStorage() {
-          // Comparateur d'égalité des articles actuellement choisis et ceux déja choisis (et stoké)
+          // Comparateur d'égalité des articles actuellement choisis et ceux déjà choisis (et stockés)
           let articleTaked = basketCustomer.find(function (p) {
             return (
               p.idArticle == articleCustomer.idArticle &&
@@ -129,7 +129,7 @@ async function addArticleInLocalStorage() {
             );
           });
           if (articleTaked != undefined) {
-            // On modifie la quantité d'un produit existant dans le panier du localstorage
+            // On modifie la quantité d'un produit existant dans le panier du local storage
             // Définition de additionQuantité qui est la valeur de l'addition de l'ancienne quantité parsée et de la nouvelle parsée pour le même produit
             let addArticleQuantity =
               parseInt(articleCustomer.quantityArticle) +
@@ -144,16 +144,16 @@ async function addArticleInLocalStorage() {
               );
             }
           } else {
-            // Si l'article exist pas dans le local storage, On envoi les données dans articleCustomer, puis on les ajoute au localStorage.
+            // Si l'article n'existe pas dans le local storage, On envoie les données dans articleCustomer, puis on les ajoute au local storage.
             articleCustomer.quantityArticle = articleCustomer.quantityArticle;
             basketCustomer.push(articleCustomer);
           }
-          // Et enfin, on enregistre le panier dans le localStorage
+          // Et enfin, on enregistre le panier dans le local storage
 
           return (localStorage.product = JSON.stringify(basketCustomer));
         }
 
-        // Pour finir cette partie, on place une condition pour validé le tout :
+        // Pour finir cette partie, on place une condition pour valider le tout :
         if (basketCustomer) {
           sendInLocalStorage();
           window.location.href = "cart.html";
