@@ -1,5 +1,5 @@
 /*=============================================================================================
-SCRIPT DE LA PAGE D'ACCUEIL -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS EN BASE DE DONNÉES
+SCRIPT DE LA PAGE D'ACCUEIL -> LE BUT EST DE FAIRE AFFICHER TOUS LES ARTICLES EN BASE DE DONNÉES
 ===============================================================================================*/
 
 /*--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ async function dataBase() {
      que la fonction dataBase() est une "promise". C'est pour ça que la fonction cardsKanap() est async (obligatoire si on veut
       mettre "await" dedans...)
      Après avoir répupéré la fonction dataBase() puis stoké dans une constante, on lance une boucle pour afficher
-     les produits dans la page d'accueil en rejoutant par la suite document.querySelector("#items").innerHTML  */
+     les articles dans la page d'accueil en rejoutant par la suite document.querySelector("#items").innerHTML  */
 
 async function cardsKanap() {
   const articles = await dataBase();

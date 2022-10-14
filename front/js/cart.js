@@ -1,5 +1,5 @@
 /*=============================================================================================
-SCRIPT DE LA PAGE PANIER -> LE BUT EST DE FAIRE AFFICHER TOUS LES PRODUITS DANS LE LOCAL STORAGE
+SCRIPT DE LA PAGE PANIER -> LE BUT EST DE FAIRE AFFICHER TOUS LES ARTICLES DANS LE LOCAL STORAGE
                             POUR POUVOIR ENVOYER LA COMMANDE VIA UN FORMULAIRE
 ===============================================================================================*/
 async function theCart() {
@@ -30,7 +30,7 @@ async function theCart() {
   }
 
   //--------------------------------------------------------------
-  // A/ Fonction qui va déterminer les conditions d'affichage des produits du panier dans le html
+  // A/ Fonction qui va déterminer les conditions d'affichage des articles du panier dans le html
   //--------------------------------------------------------------
 
   function displayBasket() {
@@ -61,7 +61,7 @@ async function theCart() {
       // Calcul du prix total dans le panier :
       totalCost += basketCustomer[i].quantityArticle * fetchPrice[i].price;
 
-      // On crée l'affichage des produits du panier via un innerHTML dans le code html :
+      // On crée l'affichage des articles du panier via un innerHTML dans le code html :
       viewBasket = document.getElementById("cart__items").innerHTML += `
   <article class="cart__item" data-id=${basketCustomer[i].idArticle} data-color="${basketCustomer[i].colorArticle}">
               <div class="cart__item__img">
@@ -101,11 +101,11 @@ async function theCart() {
   displayBasket();
 
   //--------------------------------------------------------------
-  //  B/ Fonction de supression d'un article du panier (dynamiquement) et donc de l'affichage
+  //  B/ Fonction de suppression d'un article du panier (dynamiquement) et donc de l'affichage
   //--------------------------------------------------------------
 
   function deleteArticle() {
-    // On crée une boucle dans le local storage avec un addEventListener pour supprimer les produits dynamiquement :
+    // On crée une boucle dans le local storage avec un addEventListener pour supprimer les articles dynamiquement :
     for (let i = 0; i < basketCustomer.length; i++) {
       document
         .querySelectorAll(

@@ -3,7 +3,7 @@
 ===============================================================================================*/
 
 /*--------------------------------------------------------------------------
-// PARTIE 1 : fonction de récupération de l'id du produit via l'URL
+// PARTIE 1 : fonction de récupération de l'id de l'article via l'URL
 ----------------------------------------------------------------------------*/
 function idRecup() {
   let url = new URL(document.location);
@@ -14,7 +14,7 @@ function idRecup() {
 }
 
 /*--------------------------------------------------------------------------
-  //  PARTIE 2 : fonction de récupération des produits de l'api et traitement des données (voir script.js)
+  //  PARTIE 2 : fonction de récupération des articles de l'api et traitement des données (voir script.js)
   ----------------------------------------------------------------------------*/
 async function dataBase(articleId) {
   return fetch(`http://localhost:3000/api/products/${articleId}`)
@@ -28,13 +28,13 @@ async function dataBase(articleId) {
     .catch(function (error) {
       document.querySelector(".item").innerHTML =
         "<h1>Erreur de chargement</h1>";
-      console.log("Erreur de chargement des produits... Voir la ressource API");
+      console.log("Erreur de chargement de l'article... Voir la ressource API");
       console.log(error);
     });
 }
 
 /*--------------------------------------------------------------------------
-  //  PARTIE 3 : fonction d'affichage du produit de l'api
+  //  PARTIE 3 : fonction d'affichage de l'article de l'api
   ----------------------------------------------------------------------------*/
 
 function articleDetails(article) {
@@ -51,7 +51,7 @@ function articleDetails(article) {
   prix.textContent = `${article.price}`;
   description.textContent = `${article.description}`;
 
-  // Boucle pour chercher les couleurs pour chaque produit en fonction de sa clef/valeur
+  // Boucle pour chercher les couleurs pour chaque article en fonction de sa clef/valeur
 
   for (let color of article.colors) {
     // Ajout des balises d'option couleur avec leur valeur
@@ -129,8 +129,8 @@ async function addArticleInLocalStorage() {
             );
           });
           if (articleTaked != undefined) {
-            // On modifie la quantité d'un produit existant dans le panier du local storage
-            // Définition de additionQuantité qui est la valeur de l'addition de l'ancienne quantité parsée et de la nouvelle parsée pour le même produit
+            // On modifie la quantité d'un article existant dans le panier du local storage
+            // Définition de additionQuantité qui est la valeur de l'addition de l'ancienne quantité parsée et de la nouvelle parsée pour le même article
             let addArticleQuantity =
               parseInt(articleCustomer.quantityArticle) +
               parseInt(articleTaked.quantityArticle);

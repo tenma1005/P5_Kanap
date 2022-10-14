@@ -22,7 +22,7 @@ function orderNumber() {
 orderNumber();
 
 /*--------------------------------------------------------------------------
-  // PARTIE 2 : Et pour EN finir, la fonction purge() va permettre de supprimer les produits dans le local storage.
+  // PARTIE 2 : Et pour EN finir, la fonction purge() va permettre de supprimer les articles dans le local storage.
   ----------------------------------------------------------------------------*/
 
 function purge() {
