@@ -140,7 +140,7 @@ async function addArticleInLocalStorage() {
             if (articleTaked.quantityArticle > 100) {
               articleTaked.quantityArticle = 100;
               alert(
-                "Vous ne pouvez pas dépasser les 100 articles dans le panier... La quantité total a été ramené à 100"
+                "Vous ne pouvez pas dépasser les 100 articles dans le panier... La quantité totale a été ramené à 100"
               );
             }
           } else {
