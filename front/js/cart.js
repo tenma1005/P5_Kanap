@@ -156,7 +156,7 @@ async function theCart() {
           basketCustomer[i].quantityArticle = 100;
           // Et un message au client pour aller avec ceci
           alert(
-            "Vous ne pouvez pas dépasser les 100 articles dans le panier... La quantité total a été ramené à 100"
+            "Vous ne pouvez pas dépasser les 100 articles identiques dans le panier... La quantité totale a été ramené à 100"
           );
         }
 
@@ -165,7 +165,7 @@ async function theCart() {
           basketCustomer[i].quantityArticle = 1;
           // Et un message au client pour aller avec ceci
           alert(
-            "Vous ne pouvez pas aller en dessous de 1 article dans le panier... La quantité total a été ramené à 1... Sinon supprimez-le"
+            "Vous ne pouvez pas aller en dessous de 1 article dans le panier... La quantité totale a été ramené à 1... Sinon supprimez-le"
           );
         }
 
