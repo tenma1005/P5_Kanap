@@ -6,8 +6,8 @@
 // PARTIE 1 : fonction de récupération de l'id de l'article via l'URL
 ----------------------------------------------------------------------------*/
 function idRecup() {
-  let url = new URL(document.location);
-  let idProduct = url.searchParams.get("id");
+  const url = new URLSearchParams(window.location.search);
+  const idProduct = url.get("id");
   // Affiche l'id de l'article dans la console
   console.log("id de l'article affiché : " + idProduct);
   return idProduct;
