@@ -317,7 +317,7 @@ async function theCart() {
             // Nous affiche la page confirmation.html avec un message de confirmation + le numéro de commande si toutes les conditions du script sont ok.
             // Aussi, sur l'url de la page de confirmation on rajoute le numéro de commande directement dans l'url
             window.location.href =
-              "/front/html/confirmation.html" + "?orderId=" + orderId;
+              "./confirmation.html" + "?orderId=" + orderId;
 
             // Pour afficher le tableau de la commande dans la console de la page confirmation.html
             return console.table(data);
